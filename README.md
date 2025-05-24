@@ -269,7 +269,6 @@ dependencies {
 
 
 5. **Agregar Crash de prueba para Crashlitycs**: 
-
 - Abrí MainActivity.kt y dentro del método onCreate, agregá lo siguiente:
 
 ```MainActivity.kt
