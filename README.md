@@ -23,9 +23,11 @@ cd penguin-mobile-autopass
 npm install
 ```
 
-### 3. Generar el Bundle del Backend
+### 3. Generar el Bundle del Backend o 
 ```bash
 npm run bundle
+
+ npx bare-pack --target ios --target android  --linked --out app/app.bundle.mjs backend/backend.mjs
 ```
 
 ## 📱 Ejecutar en Dispositivos (debug-mode)
@@ -263,3 +265,30 @@ dependencies {
 4. **Firma de la App**:
    - Debug: Usa el keystore por defecto
    - Release: Requiere configuración de keystore personalizado
+
+
+
+5. **Agregar Crash de prueba para Crashlitycs**: 
+
+- Abrí MainActivity.kt y dentro del método onCreate, agregá lo siguiente:
+
+```MainActivity.kt
+import com.google.firebase.crashlytics.FirebaseCrashlytics
+import android.os.Bundle
+
+class MainActivity : ReactActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        // 💥 Crash for testing
+        FirebaseCrashlytics.getInstance().setCrashlyticsCollectionEnabled(true)
+        FirebaseCrashlytics.getInstance().log("Crash de prueba registrado manualmente")
+        FirebaseCrashlytics.getInstance().sendUnsentReports()
+
+        throw RuntimeException("Crash real de prueba desde MainActivity.kt")
+    }
+}
+```
+
+Una vez que se reciba los crash de crashlitycs comentar esta seccion
