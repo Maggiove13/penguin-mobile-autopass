@@ -13,7 +13,7 @@ export default {
   assetBundlePatterns: ['**/*'],
   ios: {
     supportsTablet: true,
-    bundleIdentifier: 'com.pederseo.penguinmobileautopass',
+    bundleIdentifier: 'com.maggi.penguinmobileautopass',
     googleServicesFile: './GoogleService-Info.plist'
   },
   android: {
