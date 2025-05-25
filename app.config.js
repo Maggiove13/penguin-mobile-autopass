@@ -10,27 +10,37 @@ export default {
     resizeMode: 'contain',
     backgroundColor: '#ffffff'
   },
-  assetBundlePatterns: [
-    '**/*'
-  ],
+  assetBundlePatterns: ['**/*'],
   ios: {
     supportsTablet: true,
-    bundleIdentifier: 'com.pederseo.penguinmobileautopass'
+    bundleIdentifier: 'com.pederseo.penguinmobileautopass',
+    googleServicesFile: './GoogleService-Info.plist'
   },
   android: {
     adaptiveIcon: {
       foregroundImage: './assets/images/adaptive-icon.png',
       backgroundColor: '#ffffff'
     },
-    package: 'com.pederseo.penguinmobileautopass'
+    package: 'com.maggi.penguinmobileautopass',
+    googleServicesFile: './google-services.json'
   },
   web: {
     favicon: './assets/images/icon.png'
   },
   plugins: [
+    '@react-native-firebase/app',
+    '@react-native-firebase/crashlytics',
+    [
+      'expo-build-properties',
+      {
+        ios: {
+          useFrameworks: 'static'
+        }
+      }
+    ],
     'expo-router'
   ],
   experiments: {
     newArchEnabled: true
   }
-} 
+};
