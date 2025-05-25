@@ -291,3 +291,38 @@ class MainActivity : ReactActivity() {
 ```
 
 Una vez que se reciba los crash de crashlitycs comentar esta seccion
+
+## **Pasos para instalar Crashlitics en la app**: 
+1. En la terminal ejecuta: 
+```shell
+npx expo install @react-native-firebase/app @react-native-firebase/crashlytics
+```
+
+2. Configurar app.json o app.config.js
+```json
+{
+  "expo": {
+    "android": {
+      "googleServicesFile": "./google-services.json",
+      "package": "com.tuempresa.tuapp"
+    },
+    "ios": {
+      "googleServicesFile": "./GoogleService-Info.plist",
+      "bundleIdentifier": "com.tuempresa.tuapp"
+    },
+    "plugins": [
+      "@react-native-firebase/app",
+      "@react-native-firebase/crashlytics",
+      [
+        "expo-build-properties",
+        {
+          "ios": {
+            "useFrameworks": "static"
+          }
+        }
+      ]
+    ]
+  }
+}
+
+```
