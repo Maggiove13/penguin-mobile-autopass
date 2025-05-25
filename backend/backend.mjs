@@ -14,7 +14,7 @@ const { IPC } = BareKit  // Inter-Process Communication
 // En Android usa una ruta específica, en otros casos usa una ruta local
 const path =
   Bare.argv[0] === 'android'
-    ? '/data/data/com.pederseo.penguinmobileautopass/autopass-example'
+    ? '/data/data/com.maggi.penguinmobileautopass/autopass-example'
     : './tmp/autopass-example/'
 
 // Inicializa el sistema RPC para comunicación bidireccional
